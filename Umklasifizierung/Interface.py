@@ -1,4 +1,5 @@
 import sys
+import os
 from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton, QFileDialog, QLabel, QVBoxLayout, QWidget, QMessageBox, QLineEdit
 from PyQt6.QtGui import QIcon, QFont, QPixmap
 from PyQt6.QtCore import Qt
@@ -37,10 +38,13 @@ class MainWindow(QMainWindow):
         central_widget.setLayout(layout)
         self.setCentralWidget(central_widget)
 
-        def load_stylesheet():
-         with open("styles_c.css", "r") as file:
-             return file.read()
-        self.setStyleSheet(load_stylesheet())
+        # Load stylesheet from the same directory as this script
+        css_path = os.path.join(os.path.dirname(__file__), "styles_c.css")
+        if os.path.exists(css_path):
+            with open(css_path, "r") as file:
+                self.setStyleSheet(file.read())
+        else:
+            print(f"Warning: {css_path} not found. Stylesheet not applied.")
                            
     def reasign(self):
         file_path, _ = QFileDialog.getOpenFileName(self, "Selecct an IFC", "", "IFC Files (*.ifc)")
