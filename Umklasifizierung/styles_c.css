@@ -1,0 +1,21 @@
+QMainWindow {
+    background-color: #2e2e2e;
+    border-image: url('C:/Users/FlorenciaGomez/Desktop/VSC_Interfaz/Logo.jpg') 0 0 0 0 stretch stretch;
+}
+
+QLabel {
+    color: rgb(230, 223, 223);
+    font-size: 14px;
+}
+
+QPushButton {
+    background-color: #1c1919;
+    color: white;
+    border-radius: 30px;
+    padding: 10px;
+    font-size: 13px;
+}
+
+QPushButton:hover {
+    background-color: #1c1919;
+}
